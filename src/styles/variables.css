@@ -107,13 +107,21 @@
   --shadow-soft: 0 1px 2px rgb(26 24 21 / 4%), 0 18px 40px -28px rgb(26 24 21 / 22%);
   --shadow-card: 0 1px 2px rgb(26 24 21 / 5%), 0 10px 26px -20px rgb(26 24 21 / 26%);
   --shadow-panel: 0 2px 4px rgb(26 24 21 / 4%), 0 34px 80px -46px rgb(26 24 21 / 34%);
+
+  /* Page backdrop: a base plane plus a fixed warm glow near the top. */
+  --page-base: #f2ece0;
+  --page-glow: rgb(201 165 137 / 18%);
+
+  /* Giant footer wordmark. */
+  --wordmark: #2a2520;
 }
 
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  --background: #131110;
-  --background-deep: #0d0b0a;
+  /* Deep near-black page; the fixed warm glow is layered on top. */
+  --background: #0b0a09;
+  --background-deep: #070606;
   --surface: #1b1917;
   --surface-elevated: #221f1c;
   --card: #1b1917;
@@ -146,6 +154,11 @@
   --shadow-soft: 0 1px 2px rgb(0 0 0 / 30%), 0 22px 48px -30px rgb(0 0 0 / 70%);
   --shadow-card: 0 1px 2px rgb(0 0 0 / 34%), 0 12px 30px -22px rgb(0 0 0 / 70%);
   --shadow-panel: 0 2px 5px rgb(0 0 0 / 34%), 0 36px 84px -48px rgb(0 0 0 / 80%);
+
+  --page-base: #0b0a09;
+  --page-glow: rgb(74 53 34 / 70%);
+
+  --wordmark: #ded9d1;
 
   --tone-sand-a: #2b2419;
   --tone-sand-b: #1b1712;

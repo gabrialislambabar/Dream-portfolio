@@ -12,7 +12,9 @@ export default function App() {
   const { theme, toggle } = useTheme();
 
   return (
-    <div id="top">
+    <div id="top" className="page">
+      <div className="page-background" aria-hidden="true" />
+
       <a className="skip-link" href="#main">
         Skip to content
       </a>

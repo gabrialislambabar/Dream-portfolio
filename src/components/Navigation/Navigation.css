@@ -2,7 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 90;
-  background: color-mix(in srgb, var(--background) 92%, transparent);
+  /* Transparent at rest so the fixed page glow stays unbroken; it only
+     gains a surface once the page has scrolled. */
+  background: transparent;
   border-bottom: var(--hairline) solid transparent;
   transition:
     border-color var(--dur-mid) var(--ease-out),
