@@ -1,0 +1,132 @@
+/* ------------------------------------------------------------------
+   Skills marquee — a single scrolling line between two hairlines,
+   with equal space above and below. Pauses on hover/focus and stops
+   entirely for reduced-motion users (the row then scrolls manually).
+   ------------------------------------------------------------------ */
+
+.marquee {
+  display: flex;
+  align-items: center;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding-block: clamp(1.35rem, 2.2vw, 1.9rem);
+  border-block: var(--hairline) solid var(--border);
+  overflow: hidden;
+}
+
+.marquee__label {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  flex: 0 0 auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent-text);
+  padding-right: clamp(1rem, 2vw, 1.75rem);
+  border-right: var(--hairline) solid var(--border);
+  line-height: 1;
+}
+
+.marquee__viewport {
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 2.5rem,
+    #000 calc(100% - 2.5rem),
+    transparent
+  );
+  mask-image: linear-gradient(
+    to right,
+    transparent,
+    #000 2.5rem,
+    #000 calc(100% - 2.5rem),
+    transparent
+  );
+}
+
+.marquee__rail {
+  display: flex;
+  width: max-content;
+  animation: marquee-scroll 46s linear infinite;
+}
+
+.marquee:hover .marquee__rail,
+.marquee:focus-within .marquee__rail {
+  animation-play-state: paused;
+}
+
+.marquee__group {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+}
+
+.marquee__item {
+  display: inline-flex;
+  align-items: center;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.marquee__item::after {
+  content: '';
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--border-strong);
+  margin-inline: clamp(0.9rem, 1.6vw, 1.45rem);
+}
+
+@keyframes marquee-scroll {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .marquee__rail {
+    animation: none;
+  }
+
+  .marquee__viewport {
+    overflow-x: auto;
+    -webkit-mask-image: none;
+    mask-image: none;
+  }
+}
+
+@media (max-width: 560px) {
+  .marquee__label {
+    letter-spacing: 0.14em;
+    padding-right: 0.9rem;
+  }
+
+  .marquee__viewport {
+    -webkit-mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 1rem,
+      #000 calc(100% - 1rem),
+      transparent
+    );
+    mask-image: linear-gradient(
+      to right,
+      transparent,
+      #000 1rem,
+      #000 calc(100% - 1rem),
+      transparent
+    );
+  }
+}

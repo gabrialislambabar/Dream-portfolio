@@ -35,7 +35,7 @@ export default function Journey() {
             </dl>
           </Reveal>
 
-          <ol className="journey__list">
+          <ol className="journey__list" role="list">
             {journey.map((step, index) => (
               <Reveal
                 as="li"

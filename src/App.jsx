@@ -20,7 +20,7 @@ export default function App() {
 
       <Navigation theme={theme} onToggleTheme={toggle} />
 
-      <main id="main">
+      <main id="main" tabIndex={-1}>
         <Masthead />
         <About />
         <Education />

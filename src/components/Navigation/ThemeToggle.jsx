@@ -49,14 +49,16 @@ export default function ThemeToggle({ theme, onToggle }) {
       type="button"
       className="theme-toggle"
       onClick={handleClick}
+      aria-label="Dark theme"
       aria-pressed={isDark}
-      aria-label={`Switch to ${isDark ? 'light' : 'dark'} theme`}
       title={`Switch to ${isDark ? 'light' : 'dark'} theme`}
     >
       <span className="theme-toggle__icon" aria-hidden="true">
         {isDark ? <Moon size={14} strokeWidth={1.6} /> : <Sun size={14} strokeWidth={1.6} />}
       </span>
-      <span className="theme-toggle__label">{isDark ? 'Night' : 'Day'}</span>
+      <span className="theme-toggle__label" aria-hidden="true">
+        {isDark ? 'Night' : 'Day'}
+      </span>
     </button>
   );
 }

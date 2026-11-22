@@ -2,7 +2,8 @@ import Reveal from '../Reveal';
 import Figure from '../Figure';
 import SectionHeading from '../SectionHeading';
 import EngineeringPhilosophy from '../EngineeringPhilosophy/EngineeringPhilosophy';
-import { aboutParagraphs, personalInfo, interests } from '../../data/profile';
+import SkillsMarquee from '../SkillsMarquee/SkillsMarquee';
+import { aboutParagraphs, personalInfo, profile } from '../../data/profile';
 import { aboutPortrait } from '../../lib/assets';
 
 import './About.css';
@@ -15,15 +16,23 @@ export default function About() {
           <SectionHeading
             id="about"
             index="01"
-            label="Introduction"
+            label="Background &amp; working style"
             meta="Computer Science · Full-Stack"
             lines={[
-              { text: 'A software developer' },
-              { text: 'who thinks in systems.', accent: true },
+              { text: 'A software Engineer' },
+              { text: 'who thinks in systems', accent: true },
             ]}
           />
         </Reveal>
+      </div>
 
+      <Reveal className="about__marquee-wrap" delay={0.05}>
+        <div className="container">
+          <SkillsMarquee />
+        </div>
+      </Reveal>
+
+      <div className="container">
         <div className="about__grid grid-12">
           <div className="about__copy">
             {aboutParagraphs.map((paragraph, index) => (
@@ -38,10 +47,22 @@ export default function About() {
             ))}
 
             <Reveal delay={0.14} className="about__details">
-              <h3 className="about__label label label--tight">Details</h3>
-              <dl className="about__list">
+              <p className="about__id">
+                <span className="about__id-slash" aria-hidden="true">
+                  /
+                </span>
+                <span className="about__id-name">{profile.name}</span>
+                <span className="about__id-role">· {profile.role}</span>
+              </p>
+
+              <div className="about__details-head">
+                <span className="label">Details</span>
+                <span className="about__details-rule" aria-hidden="true" />
+              </div>
+
+              <dl className="about__facts">
                 {personalInfo.map((item) => (
-                  <div className="about__row" key={item.label}>
+                  <div className="about__fact" key={item.label}>
                     <dt>{item.label}</dt>
                     <dd>{item.value}</dd>
                   </div>
@@ -59,17 +80,6 @@ export default function About() {
                 ratio="4 / 5"
                 caption="Muaz Islam Babar — Multan, Pakistan"
               />
-            </Reveal>
-
-            <Reveal delay={0.12} className="about__interests">
-              <h3 className="about__label label label--tight">Interests</h3>
-              <ul className="about__tags">
-                {interests.map((interest) => (
-                  <li key={interest} className="about__tag">
-                    {interest}
-                  </li>
-                ))}
-              </ul>
             </Reveal>
           </div>
         </div>

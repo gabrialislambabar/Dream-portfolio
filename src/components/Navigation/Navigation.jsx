@@ -17,6 +17,8 @@ export default function Navigation({ theme, onToggleTheme }) {
   const [active, setActive] = useState('');
   const [scrolled, setScrolled] = useState(false);
   const panelRef = useRef(null);
+  const menuButtonRef = useRef(null);
+  const firstLinkRef = useRef(null);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -46,8 +48,15 @@ export default function Navigation({ theme, onToggleTheme }) {
   useEffect(() => {
     if (!open) return undefined;
 
+    /* Move focus into the opened panel so keyboard and screen-reader
+       users land on the first destination instead of the page top. */
+    const focusTimer = window.setTimeout(() => firstLinkRef.current?.focus(), 60);
+
     const onKeyDown = (event) => {
-      if (event.key === 'Escape') setOpen(false);
+      if (event.key === 'Escape') {
+        setOpen(false);
+        menuButtonRef.current?.focus();
+      }
     };
 
     const onPointerDown = (event) => {
@@ -57,6 +66,7 @@ export default function Navigation({ theme, onToggleTheme }) {
     document.addEventListener('keydown', onKeyDown);
     document.addEventListener('pointerdown', onPointerDown);
     return () => {
+      window.clearTimeout(focusTimer);
       document.removeEventListener('keydown', onKeyDown);
       document.removeEventListener('pointerdown', onPointerDown);
     };
@@ -87,13 +97,14 @@ export default function Navigation({ theme, onToggleTheme }) {
         </a>
 
         <div className="nav__end" ref={panelRef}>
-          <ul className="nav__links" id="nav-links">
-            {LINKS.map((link) => (
+          <ul className="nav__links" id="nav-links" role="list">
+            {LINKS.map((link, index) => (
               <li key={link.id}>
                 <a
+                  ref={index === 0 ? firstLinkRef : undefined}
                   className={`nav__link${active === link.id ? ' is-active' : ''}`}
                   href={`#${link.id}`}
-                  aria-current={active === link.id ? 'true' : undefined}
+                  aria-current={active === link.id ? 'location' : undefined}
                   onClick={() => setOpen(false)}
                 >
                   {link.label}
@@ -107,6 +118,7 @@ export default function Navigation({ theme, onToggleTheme }) {
           <ThemeToggle theme={theme} onToggle={onToggleTheme} />
 
           <button
+            ref={menuButtonRef}
             type="button"
             className="nav__menu"
             aria-expanded={open}
@@ -114,7 +126,7 @@ export default function Navigation({ theme, onToggleTheme }) {
             aria-label={open ? 'Close navigation menu' : 'Open navigation menu'}
             onClick={() => setOpen((value) => !value)}
           >
-            {open ? <X size={16} strokeWidth={1.6} /> : <Menu size={16} strokeWidth={1.6} />}
+            {open ? <X size={16} strokeWidth={1.6} aria-hidden="true" /> : <Menu size={16} strokeWidth={1.6} aria-hidden="true" />}
           </button>
         </div>
       </div>

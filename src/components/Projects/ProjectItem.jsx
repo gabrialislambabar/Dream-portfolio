@@ -1,4 +1,4 @@
-import { ArrowUpRight } from 'lucide-react';
+import { ArrowUpRight, Globe } from 'lucide-react';
 import Reveal from '../Reveal';
 import Figure from '../Figure';
 import { GithubMark } from '../BrandIcons';
@@ -13,6 +13,22 @@ export default function ProjectItem({ project, index = 0 }) {
 
   const mediaColumn = project.flip ? 13 - mediaSpan : 1;
   const textColumn = project.flip ? 1 : mediaSpan + 2;
+
+  /* One clear action per project: the live deployment when there is
+     one, otherwise the repository. */
+  const action = project.live
+    ? {
+        href: project.live,
+        label: project.liveLabel ?? 'Visit live site',
+        kind: 'live',
+        hint: `opens the ${project.name} deployment in a new tab`,
+      }
+    : {
+        href: project.repo,
+        label: 'View source',
+        kind: 'source',
+        hint: `opens ${project.name} on GitHub in a new tab`,
+      };
 
   return (
     <Reveal
@@ -35,7 +51,11 @@ export default function ProjectItem({ project, index = 0 }) {
           ratio="4 / 3"
           caption={`${project.kind} · ${project.year}`}
           pendingLabel="Screenshot pending"
-          overlay={<span className="project__badge label label--tight">{project.id}</span>}
+          overlay={
+            <span className="project__badge label label--tight" aria-hidden="true">
+              {project.id}
+            </span>
+          }
         />
       </div>
 
@@ -66,7 +86,7 @@ export default function ProjectItem({ project, index = 0 }) {
           </p>
         ) : null}
 
-        <ul className="project__tech" aria-label={`${project.name} technologies`}>
+        <ul className="project__tech" role="list" aria-label={`${project.name} technologies`}>
           {project.tech.map((tech) => (
             <li key={tech}>{tech}</li>
           ))}
@@ -74,29 +94,24 @@ export default function ProjectItem({ project, index = 0 }) {
 
         <div className="project__links">
           <a
-            className="source-btn"
-            href={project.repo}
+            className={`action-btn action-btn--${action.kind}`}
+            href={action.href}
             target="_blank"
             rel="noreferrer noopener"
           >
-            <span className="source-btn__icon" aria-hidden="true">
-              <GithubMark size={15} />
+            <span className="action-btn__icon" aria-hidden="true">
+              {action.kind === 'live' ? (
+                <Globe size={15} strokeWidth={1.7} />
+              ) : (
+                <GithubMark size={15} />
+              )}
             </span>
-            <span className="source-btn__label">View source</span>
-            <span className="source-btn__arrow" aria-hidden="true">
+            <span className="action-btn__label">{action.label}</span>
+            <span className="action-btn__arrow" aria-hidden="true">
               <ArrowUpRight size={13} strokeWidth={1.9} />
             </span>
-            <span className="sr-only"> (opens {project.name} on GitHub in a new tab)</span>
+            <span className="sr-only"> ({action.hint})</span>
           </a>
-
-          {project.live ? (
-            <a className="source-btn source-btn--ghost" href={project.live} target="_blank" rel="noreferrer noopener">
-              <span className="source-btn__label">Live site</span>
-              <span className="source-btn__arrow" aria-hidden="true">
-                <ArrowUpRight size={13} strokeWidth={1.9} />
-              </span>
-            </a>
-          ) : null}
         </div>
       </div>
     </Reveal>

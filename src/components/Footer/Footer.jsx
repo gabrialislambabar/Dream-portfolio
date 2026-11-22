@@ -33,6 +33,9 @@ export default function Footer() {
               {...(link.label !== 'Email' ? { target: '_blank', rel: 'noreferrer noopener' } : {})}
             >
               {link.label}
+              {link.label !== 'Email' ? (
+                <span className="sr-only"> (opens in a new tab)</span>
+              ) : null}
             </a>
           ))}
         </nav>

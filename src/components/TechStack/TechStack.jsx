@@ -30,7 +30,7 @@ export default function TechStack() {
 
               <h3 className="stack__card-title">{group.title}</h3>
 
-              <ul className="stack__chips" aria-label={`${group.title} skills`}>
+              <ul className="stack__chips" role="list" aria-label={`${group.title} skills`}>
                 {group.items.map((item) => (
                   <li className="stack__chip" key={item}>
                     {item}

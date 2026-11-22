@@ -73,7 +73,7 @@ export default function Contact() {
                   subject already set — name the team and what you would want me working on.
                 </p>
 
-                <ul className="contact__topics" aria-label="Start an email about">
+                <ul className="contact__topics" role="list" aria-label="Start an email about">
                   {TOPICS.map((topic) => (
                     <li key={topic.label}>
                       <a
@@ -102,7 +102,7 @@ export default function Contact() {
                 <span className="label label--tight contact__note-meta">Three channels</span>
               </div>
 
-              <ul className="contact__channel-list">
+              <ul className="contact__channel-list" role="list">
                 {CHANNELS.map((channel) => (
                   <li key={channel.label}>
                     <a

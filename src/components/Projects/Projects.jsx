@@ -31,6 +31,7 @@ export default function Projects() {
             rel="noreferrer noopener"
           >
             All repositories on GitHub
+            <span className="sr-only"> (opens your GitHub profile in a new tab)</span>
           </a>
         </Reveal>
 

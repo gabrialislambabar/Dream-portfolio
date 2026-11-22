@@ -78,9 +78,15 @@ button {
 }
 
 :focus-visible {
-  outline: 2px solid var(--focus);
+  outline: 3px solid var(--focus);
   outline-offset: 3px;
-  border-radius: 1px;
+  border-radius: 2px;
+}
+
+/* The skip link targets <main>, which is focused programmatically; it
+   is a scroll destination, not an interactive control, so no ring. */
+main:focus {
+  outline: none;
 }
 
 ::selection {
@@ -186,7 +192,7 @@ button {
   transition: transform var(--dur-fast) var(--ease-out);
 }
 
-.skip-link:focus-visible {
+.skip-link:focus {
   transform: translateY(0);
 }
 
@@ -264,5 +270,73 @@ button {
     animation-iteration-count: 1 !important;
     transition-duration: 0.001ms !important;
     scroll-behavior: auto !important;
+  }
+}
+
+/* ---------- Increased contrast preference ----------
+   Selectors are prefixed so they outrank the theme tokens in
+   variables.css and the component styles that load after this file. */
+
+@media (prefers-contrast: more) {
+  :root[data-theme='light'] {
+    --text-secondary: #3f382e;
+    --text-tertiary: #443c31;
+    --border: #b3a48d;
+    --border-strong: #8f806a;
+  }
+
+  :root[data-theme='dark'] {
+    --text-secondary: #e2d9cc;
+    --text-tertiary: #d6ccbe;
+    --border: #776c60;
+    --border-strong: #96897a;
+  }
+
+  /* Decorative tinted display lines fall back to full-contrast ink. */
+  html .display__line--accent,
+  html .masthead__role {
+    color: var(--text-primary);
+  }
+
+  html .figure__caption,
+  html .sec-head__meta,
+  html .contact__channel-label,
+  html .project__status,
+  html .project__attribution {
+    color: var(--text-secondary);
+  }
+
+  :focus-visible {
+    outline-width: 4px;
+  }
+}
+
+/* ---------- Windows High Contrast / forced colours ---------- */
+
+@media (forced-colors: active) {
+  .action-btn,
+  .theme-toggle,
+  .link-arrow,
+  .stack__chip,
+  .project__tech li,
+  .about__tags li {
+    border-color: ButtonBorder;
+  }
+
+  .action-btn--live,
+  .contact__send {
+    background: ButtonFace;
+    color: ButtonText;
+  }
+
+  .display__line--accent,
+  .masthead__role {
+    color: CanvasText;
+  }
+
+  .figure__media,
+  .stack__card,
+  .contact__panel {
+    border: 1px solid CanvasText;
   }
 }

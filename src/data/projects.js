@@ -22,7 +22,8 @@ export const projects = [
     attribution: 'Forked project — presented here with my own contributions described honestly.',
     tech: ['TypeScript', 'Supabase', 'Frontend development'],
     repo: 'https://github.com/gabrialislambabar/DribbbleClone',
-    live: null,
+    live: 'https://dribbble-clone-fawn.vercel.app/',
+    liveLabel: 'Visit live site',
   },
   {
     id: '02',

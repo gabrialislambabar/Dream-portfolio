@@ -1,7 +1,7 @@
 /* ------------------------------------------------------------------
    Typography
-   Manrope for everything structural, including the tan italic accent
-   lines. IBM Plex Mono for technical labels.
+   Manrope for structure and display headings, Georgia for all
+   descriptive / supporting copy, IBM Plex Mono for technical labels.
    ------------------------------------------------------------------ */
 
 h1,
@@ -35,10 +35,14 @@ h4 {
   line-height: 1.25;
 }
 
+/* Body, description and supporting copy are set in Georgia. Headings,
+   labels and controls keep their own families. */
 p {
+  font-family: var(--font-serif);
   font-size: var(--fs-body);
   color: var(--text-primary);
-  line-height: 1.68;
+  line-height: 1.64;
+  letter-spacing: 0;
   text-wrap: pretty;
 }
 
@@ -47,7 +51,7 @@ p {
   font-weight: 600;
   letter-spacing: -0.045em;
   line-height: 0.96;
-  color: var(--text-primary);
+  color: var(--text-display);
 }
 
 .display__line {
@@ -81,9 +85,10 @@ p {
 }
 
 .lead {
+  font-family: var(--font-serif);
   font-size: var(--fs-lead);
-  line-height: 1.58;
-  letter-spacing: -0.012em;
+  line-height: 1.56;
+  letter-spacing: 0;
   color: var(--text-primary);
   text-wrap: pretty;
 }
@@ -101,6 +106,7 @@ p {
 .prose {
   max-width: var(--measure);
   color: var(--text-secondary);
+  font-family: var(--font-serif);
 }
 
 .prose p {
@@ -123,11 +129,12 @@ p {
 }
 
 .quote {
+  font-family: var(--font-serif);
   font-size: clamp(1.5rem, 2.4vw, 2.1rem);
   font-style: italic;
   font-weight: 500;
   line-height: 1.28;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   color: var(--text-primary);
   text-wrap: balance;
 }
