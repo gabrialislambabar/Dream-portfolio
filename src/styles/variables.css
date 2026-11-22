@@ -43,6 +43,12 @@
   --radius-xl: 30px;
   --radius-pill: 999px;
 
+  /* Filled primary action (project "live" button). Deliberately
+     theme-independent: the same terracotta fill in light and dark so
+     it never flips foreground/background between themes. */
+  --btn-solid-bg: #8a5a35;
+  --btn-solid-text: #faf6ee;
+
   /* Motion */
   --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
   --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
@@ -89,11 +95,6 @@
   --accent-deep: #74492a;
   --accent-soft: #ece0cd;
 
-  /* Filled primary action (project "live" button). Kept accent-toned
-     in both themes instead of flipping black/white. */
-  --btn-solid-bg: #8a5a35;
-  --btn-solid-text: #faf6ee;
-
   --border: #e2d8c8;
   --border-strong: #d3c6b2;
   --inverse-background: #1a1815;
@@ -127,9 +128,6 @@
   --accent-text: #d8b591;
   --accent-deep: #e0a480;
   --accent-soft: #322720;
-
-  --btn-solid-bg: #d0a982;
-  --btn-solid-text: #1b1917;
 
   --border: #332e29;
   --border-strong: #48413a;

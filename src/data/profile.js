@@ -28,15 +28,6 @@ export const personalInfo = [
   { label: 'Graduation', value: 'Expected 2027' },
 ];
 
-export const interests = [
-  'Arch Linux',
-  'Problem solving',
-  'Cloud computing',
-  'System design',
-  'Data structures and algorithms',
-  'Listening to violin music — and hoping to learn the instrument',
-];
-
 export const philosophy = {
   heading: ['Question first.', 'Solution second.'],
   body: [

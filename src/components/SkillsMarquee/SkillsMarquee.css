@@ -51,7 +51,7 @@
 .marquee__rail {
   display: flex;
   width: max-content;
-  animation: marquee-scroll 46s linear infinite;
+  animation: marquee-scroll 60s linear infinite;
 }
 
 .marquee:hover .marquee__rail,
@@ -107,12 +107,15 @@
   }
 }
 
-@media (max-width: 560px) {
+/* On mobile the catalogue label is dropped so the Skill list gets the
+   full width; it stays on tablet and desktop. */
+@media (max-width: 720px) {
   .marquee__label {
-    letter-spacing: 0.14em;
-    padding-right: 0.9rem;
+    display: none;
   }
+}
 
+@media (max-width: 560px) {
   .marquee__viewport {
     -webkit-mask-image: linear-gradient(
       to right,
