@@ -1,0 +1,140 @@
+/* ------------------------------------------------------------------
+   Typography
+   Manrope for everything structural, including the tan italic accent
+   lines. IBM Plex Mono for technical labels.
+   ------------------------------------------------------------------ */
+
+h1,
+h2,
+h3,
+h4 {
+  font-family: var(--font-sans);
+  font-weight: 500;
+  letter-spacing: -0.032em;
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+h1 {
+  font-size: var(--fs-display);
+}
+
+h2 {
+  font-size: var(--fs-display-sm);
+}
+
+h3 {
+  font-size: var(--fs-h2);
+  letter-spacing: -0.024em;
+  line-height: 1.12;
+}
+
+h4 {
+  font-size: var(--fs-h3);
+  letter-spacing: -0.018em;
+  line-height: 1.25;
+}
+
+p {
+  font-size: var(--fs-body);
+  color: var(--text-primary);
+  line-height: 1.68;
+  text-wrap: pretty;
+}
+
+.display {
+  font-size: var(--fs-display);
+  font-weight: 600;
+  letter-spacing: -0.045em;
+  line-height: 0.96;
+  color: var(--text-primary);
+}
+
+.display__line {
+  display: block;
+}
+
+/* The tan second line: same family as the heading, italic and a touch
+   heavier, exactly as in the reference. */
+.display__line--accent {
+  font-family: var(--font-sans);
+  font-style: italic;
+  font-weight: 700;
+  font-size: 1.03em;
+  letter-spacing: -0.05em;
+  line-height: 1.02;
+  color: var(--accent-display);
+}
+
+.display--sm {
+  font-size: var(--fs-display-sm);
+  letter-spacing: -0.038em;
+  font-weight: 600;
+}
+
+/* Contact/stack style: oversized display set to two lines, the second
+   tinted tan and italic, as in the reference panels. */
+.display--xl {
+  font-size: clamp(2.9rem, 6.6vw, 6rem);
+  line-height: 0.92;
+  letter-spacing: -0.05em;
+}
+
+.lead {
+  font-size: var(--fs-lead);
+  line-height: 1.58;
+  letter-spacing: -0.012em;
+  color: var(--text-primary);
+  text-wrap: pretty;
+}
+
+.lede-muted {
+  max-width: var(--measure);
+  color: var(--text-secondary);
+  font-size: var(--fs-body);
+}
+
+.prose > p + p {
+  margin-top: 1.15em;
+}
+
+.prose {
+  max-width: var(--measure);
+  color: var(--text-secondary);
+}
+
+.prose p {
+  color: var(--text-secondary);
+}
+
+.prose strong {
+  color: var(--text-primary);
+  font-weight: 500;
+}
+
+.muted {
+  color: var(--text-secondary);
+}
+
+.mono {
+  font-family: var(--font-mono);
+  font-size: var(--fs-micro);
+  letter-spacing: 0.03em;
+}
+
+.quote {
+  font-size: clamp(1.5rem, 2.4vw, 2.1rem);
+  font-style: italic;
+  font-weight: 500;
+  line-height: 1.28;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+@media (max-width: 720px) {
+  .display,
+  .display--xl {
+    letter-spacing: -0.04em;
+  }
+}

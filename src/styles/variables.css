@@ -1,0 +1,142 @@
+/* ------------------------------------------------------------------
+   Design tokens
+   All theme-dependent colour lives here. Components must never
+   hardcode a hex value.
+   ------------------------------------------------------------------ */
+
+:root {
+  /* Typefaces */
+  --font-sans: 'Manrope', 'Helvetica Neue', Arial, sans-serif;
+  --font-mono: 'IBM Plex Mono', ui-monospace, 'SFMono-Regular', Menlo, monospace;
+
+  /* Fluid type scale */
+  --fs-display: clamp(2.6rem, 5.6vw, 5.1rem);
+  --fs-display-sm: clamp(2.2rem, 4.1vw, 3.75rem);
+  --fs-h2: clamp(1.6rem, 2.4vw, 2.35rem);
+  --fs-h3: clamp(1.15rem, 1.5vw, 1.4rem);
+  --fs-lead: clamp(1.0625rem, 1.3vw, 1.3125rem);
+  --fs-body: clamp(0.9375rem, 0.95vw, 1.0625rem);
+  --fs-small: 0.875rem;
+  --fs-label: 0.6875rem;
+  --fs-micro: 0.75rem;
+
+  /* Rhythm */
+  --container: 1480px;
+  --gutter: clamp(1.25rem, 4.2vw, 4.5rem);
+  --section-y: clamp(4.5rem, 8vw, 8.5rem);
+  --section-y-sm: clamp(3rem, 5vw, 5rem);
+  --stack-sm: 0.75rem;
+  --stack-md: 1.5rem;
+  --stack-lg: clamp(2rem, 3.4vw, 3.25rem);
+  --measure: 42rem;
+  --nav-h: 3.75rem;
+
+  /* Lines and surfaces */
+  --hairline: 1px;
+  --radius-xs: 2px;
+  --radius-sm: 4px;
+  --radius-md: 10px;
+  --radius-lg: 18px;
+  --radius-xl: 30px;
+  --radius-pill: 999px;
+
+  /* Motion */
+  --ease-out: cubic-bezier(0.22, 0.61, 0.36, 1);
+  --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --dur-fast: 160ms;
+  --dur-mid: 320ms;
+  --dur-slow: 620ms;
+
+  /* Placeholder tones (replaced by real imagery later) */
+  --tone-sand-a: #e8dcc8;
+  --tone-sand-b: #d6c0a1;
+  --tone-sky-a: #d9dfe1;
+  --tone-sky-b: #b6c4c9;
+  --tone-clay-a: #e8cebe;
+  --tone-clay-b: #d2a68b;
+  --tone-moss-a: #dde0ce;
+  --tone-moss-b: #bfc4a9;
+}
+
+:root,
+:root[data-theme='light'] {
+  color-scheme: light;
+
+  /* Warm cream page, lifted cards, near-black type, tan accent. */
+  --background: #f2ece0;
+  --background-deep: #ece5d7;
+  --surface: #f4efe5;
+  --surface-elevated: #faf6ee;
+  --card: #faf6ee;
+
+  --text-primary: #1a1815;
+  --text-secondary: #5f574b;
+  --text-tertiary: #75695a;
+
+  /* The tan of the reference's italic display line, sampled from the
+     art direction: #C0A183 on #F2ECE0 => 2.06:1. That is below WCAG's
+     3:1 for large text, so this token is reserved for display type only
+     and never used for anything that must be read as body copy.
+     Swap to #A2805F (3.08:1) if strict AA compliance is preferred. */
+  --accent-display: #c0a183;
+  /* Text-safe terracotta for labels, marks and small accents. */
+  --accent: #9c6b45;
+  --accent-text: #8a5a35;
+  --accent-deep: #74492a;
+  --accent-soft: #ece0cd;
+
+  --border: #e2d8c8;
+  --border-strong: #d3c6b2;
+  --inverse-background: #1a1815;
+  --inverse-text: #f4efe5;
+  --inverse-border: #35302b;
+  --focus: #8a5a35;
+  --selection: #e6d8c3;
+  --media-brightness: 1;
+
+  --shadow-soft: 0 1px 2px rgb(26 24 21 / 4%), 0 18px 40px -28px rgb(26 24 21 / 22%);
+  --shadow-card: 0 1px 2px rgb(26 24 21 / 5%), 0 10px 26px -20px rgb(26 24 21 / 26%);
+  --shadow-panel: 0 2px 4px rgb(26 24 21 / 4%), 0 34px 80px -46px rgb(26 24 21 / 34%);
+}
+
+:root[data-theme='dark'] {
+  color-scheme: dark;
+
+  --background: #131110;
+  --background-deep: #0d0b0a;
+  --surface: #1b1917;
+  --surface-elevated: #221f1c;
+  --card: #1b1917;
+
+  --text-primary: #f3eee4;
+  --text-secondary: #aaa196;
+  --text-tertiary: #968c81;
+
+  --accent-display: #c3a184;
+  --accent: #d0a982;
+  --accent-text: #d8b591;
+  --accent-deep: #e0a480;
+  --accent-soft: #322720;
+
+  --border: #332e29;
+  --border-strong: #48413a;
+  --inverse-background: #f3eee4;
+  --inverse-text: #17150f;
+  --inverse-border: #d8d0c3;
+  --focus: #e3a985;
+  --selection: #3d2e24;
+  --media-brightness: 0.88;
+
+  --shadow-soft: 0 1px 2px rgb(0 0 0 / 30%), 0 22px 48px -30px rgb(0 0 0 / 70%);
+  --shadow-card: 0 1px 2px rgb(0 0 0 / 34%), 0 12px 30px -22px rgb(0 0 0 / 70%);
+  --shadow-panel: 0 2px 5px rgb(0 0 0 / 34%), 0 36px 84px -48px rgb(0 0 0 / 80%);
+
+  --tone-sand-a: #2b2419;
+  --tone-sand-b: #1b1712;
+  --tone-sky-a: #1e2628;
+  --tone-sky-b: #131a1c;
+  --tone-clay-a: #2e211b;
+  --tone-clay-b: #1c1512;
+  --tone-moss-a: #22251c;
+  --tone-moss-b: #16180f;
+}

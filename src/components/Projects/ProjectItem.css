@@ -1,0 +1,295 @@
+.project {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+}
+
+.project__media {
+  min-width: 0;
+}
+
+.project__media .figure__pending {
+  display: none;
+}
+
+.project__media .figure__media {
+  transition: box-shadow var(--dur-slow) var(--ease-out);
+}
+
+.project:hover .project__media .figure__media {
+  box-shadow: var(--shadow-soft);
+}
+
+.project__badge {
+  position: absolute;
+  top: 0.85rem;
+  left: 0.85rem;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 1.7rem;
+  height: 1.7rem;
+  padding-inline: 0.4rem;
+  background: color-mix(in srgb, var(--background) 84%, transparent);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
+  color: var(--text-primary);
+  border: var(--hairline) solid color-mix(in srgb, var(--border) 70%, transparent);
+  border-radius: var(--radius-pill);
+}
+
+.project__body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  min-width: 0;
+}
+
+.project__head {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem;
+  padding-bottom: 0.6rem;
+  border-bottom: var(--hairline) solid var(--border);
+}
+
+.project__name {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  font-weight: 500;
+  letter-spacing: -0.028em;
+  line-height: 1.12;
+}
+
+.project__status {
+  color: var(--text-tertiary);
+  white-space: nowrap;
+  text-align: right;
+}
+
+.project__description {
+  color: var(--text-secondary);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+}
+
+.project__note {
+  padding: 0.8rem 0.9rem;
+  border-left: 1px solid var(--accent);
+  background: color-mix(in srgb, var(--accent-soft) 40%, transparent);
+}
+
+.project__note .label {
+  color: var(--accent-text);
+  display: block;
+  margin-bottom: 0.3rem;
+}
+
+.project__note p {
+  font-size: var(--fs-small);
+  color: var(--text-secondary);
+  line-height: 1.52;
+}
+
+.project__attribution {
+  font-size: 0.75rem;
+  font-family: var(--font-mono);
+  letter-spacing: 0.015em;
+  color: var(--text-tertiary);
+  line-height: 1.55;
+}
+
+.project__attribution span {
+  color: var(--accent-text);
+}
+
+.project__tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.project__tech li {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  padding: 0.28rem 0.55rem;
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius-xs);
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.project:hover .project__tech li {
+  border-color: var(--border-strong);
+}
+
+.project__links {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+  flex-wrap: wrap;
+  margin-top: 0.6rem;
+}
+
+/* ---------- Source button ----------
+   A quiet pill: bordered, transparent surface, icon chip on the left
+   and an arrow that slides on hover. Inverts to the ink surface on
+   hover, echoing the reference's dark action pills. */
+
+.source-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65rem;
+  padding: 0.5rem 0.95rem 0.5rem 0.5rem;
+  background: transparent;
+  color: var(--text-primary);
+  border: var(--hairline) solid var(--border-strong);
+  border-radius: var(--radius-pill);
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  line-height: 1;
+  transition:
+    background-color var(--dur-mid) var(--ease-out),
+    border-color var(--dur-mid) var(--ease-out),
+    color var(--dur-mid) var(--ease-out);
+}
+
+.source-btn__icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.75rem;
+  height: 1.75rem;
+  border-radius: 50%;
+  background: var(--accent-soft);
+  color: var(--accent-text);
+  flex-shrink: 0;
+  transition:
+    background-color var(--dur-mid) var(--ease-out),
+    color var(--dur-mid) var(--ease-out);
+}
+
+.source-btn__label {
+  padding-top: 1px;
+}
+
+.source-btn__arrow {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  transition:
+    transform var(--dur-mid) var(--ease-out),
+    color var(--dur-mid) var(--ease-out);
+}
+
+.source-btn:hover {
+  background: var(--inverse-background);
+  border-color: var(--inverse-background);
+  color: var(--inverse-text);
+}
+
+.source-btn:hover .source-btn__icon {
+  background: color-mix(in srgb, var(--inverse-text) 15%, transparent);
+  color: var(--inverse-text);
+}
+
+.source-btn:hover .source-btn__arrow {
+  color: var(--inverse-text);
+  transform: translate(2px, -2px);
+}
+
+.source-btn--ghost {
+  padding: 0.45rem 0.95rem;
+}
+
+/* ---------- Emphasis ---------- */
+
+.project--lead .project__body {
+  padding-top: clamp(0.5rem, 2.2vw, 2.75rem);
+}
+
+.project--lead .project__name {
+  font-size: clamp(1.6rem, 2.6vw, 2.5rem);
+}
+
+.project--lead .project__description {
+  font-size: var(--fs-lead);
+  line-height: 1.55;
+  letter-spacing: -0.008em;
+}
+
+.project--lead .project__head {
+  padding-bottom: 0.75rem;
+}
+
+/* Minor projects: tighter type, no large headline treatment */
+.project--minor .project__body {
+  padding-top: clamp(0.25rem, 1vw, 0.75rem);
+}
+
+.project--minor .project__name {
+  font-size: clamp(1.25rem, 1.6vw, 1.55rem);
+}
+
+.project--minor .project__description {
+  font-size: var(--fs-small);
+  line-height: 1.55;
+}
+
+.project--minor .project__status {
+  font-size: 0.625rem;
+}
+
+.project--minor .project__badge {
+  top: 0.7rem;
+  left: 0.7rem;
+}
+
+@media (max-width: 900px) {
+  .project__media,
+  .project__body {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+
+  .project__media {
+    order: 1;
+  }
+
+  .project__body {
+    order: 2;
+    margin-top: 1.1rem;
+    padding-top: 0 !important;
+  }
+
+  .project__name {
+    font-size: clamp(1.35rem, 4.6vw, 1.8rem);
+  }
+
+  .project--lead .project__name {
+    font-size: clamp(1.45rem, 5.2vw, 2rem);
+  }
+
+  .project--lead .project__description {
+    font-size: var(--fs-body);
+  }
+}
+
+@media (max-width: 560px) {
+  .project__head {
+    flex-direction: column;
+    gap: 0.2rem;
+    align-items: flex-start;
+  }
+
+  .project__status {
+    text-align: left;
+  }
+}

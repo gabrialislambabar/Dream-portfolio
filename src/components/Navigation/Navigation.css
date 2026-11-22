@@ -1,0 +1,222 @@
+.nav {
+  position: sticky;
+  top: 0;
+  z-index: 90;
+  background: color-mix(in srgb, var(--background) 92%, transparent);
+  border-bottom: var(--hairline) solid transparent;
+  transition:
+    border-color var(--dur-mid) var(--ease-out),
+    background-color var(--dur-mid) var(--ease-out),
+    backdrop-filter var(--dur-mid) var(--ease-out);
+}
+
+.nav--scrolled,
+.nav--open {
+  border-bottom-color: var(--border);
+  background: color-mix(in srgb, var(--background) 88%, transparent);
+  backdrop-filter: blur(14px) saturate(1.05);
+  -webkit-backdrop-filter: blur(14px) saturate(1.05);
+}
+
+.nav__inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: var(--nav-h);
+}
+
+.nav__brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7rem;
+  color: var(--text-primary);
+  flex-shrink: 0;
+}
+
+.nav__mark {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.55rem;
+  height: 1.55rem;
+  border: var(--hairline) solid var(--border-strong);
+  border-radius: var(--radius-xs);
+  font-family: var(--font-mono);
+  font-size: 0.5625rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  transition: color var(--dur-fast) var(--ease-out), border-color var(--dur-fast) var(--ease-out);
+}
+
+.nav__brand:hover .nav__mark {
+  color: var(--accent);
+  border-color: var(--accent);
+}
+
+.nav__name {
+  position: relative;
+  font-size: 0.8125rem;
+  font-weight: 500;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+}
+
+.nav__dot {
+  display: inline-block;
+  width: 3px;
+  height: 3px;
+  border-radius: 50%;
+  background: var(--accent);
+  margin-left: 0.42rem;
+  vertical-align: middle;
+  transform: translateY(-1px);
+}
+
+.nav__end {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  min-width: 0;
+}
+
+.nav__links {
+  display: flex;
+  align-items: center;
+  gap: clamp(0.9rem, 1.5vw, 1.6rem);
+}
+
+.nav__link {
+  position: relative;
+  font-size: 0.75rem;
+  letter-spacing: 0.04em;
+  color: var(--text-secondary);
+  padding-block: 0.35rem;
+  white-space: nowrap;
+  transition: color var(--dur-fast) var(--ease-out);
+}
+
+.nav__link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0.1rem;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform var(--dur-mid) var(--ease-out);
+}
+
+.nav__link:hover,
+.nav__link.is-active {
+  color: var(--text-primary);
+}
+
+.nav__link:hover::after {
+  transform: scaleX(1);
+}
+
+.nav__link.is-active::after {
+  transform: scaleX(1);
+  background: var(--accent);
+}
+
+.nav__divider {
+  width: var(--hairline);
+  height: 1.1rem;
+  background: var(--border);
+}
+
+.nav__menu {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2rem;
+  height: 2rem;
+  border: var(--hairline) solid var(--border);
+  border-radius: var(--radius-pill);
+  color: var(--text-secondary);
+}
+
+@media (max-width: 1024px) {
+  .nav__links {
+    gap: 0.9rem;
+  }
+
+  .nav__link {
+    font-size: 0.7rem;
+  }
+}
+
+@media (max-width: 720px) {
+  .nav--open {
+    background: var(--background);
+    backdrop-filter: none;
+  }
+
+  .nav__menu {
+    display: inline-flex;
+  }
+
+  .nav__divider {
+    display: none;
+  }
+
+  .nav__end {
+    gap: 0.5rem;
+  }
+
+  .nav__links {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0;
+    padding: 0 var(--gutter);
+    background: var(--background);
+    border-bottom: var(--hairline) solid var(--border);
+    overflow: hidden;
+    max-height: 0;
+    visibility: hidden;
+    transition:
+      max-height 380ms var(--ease-out),
+      visibility 0ms linear 380ms;
+  }
+
+  .nav--open .nav__links {
+    max-height: 26rem;
+    visibility: visible;
+    transition:
+      max-height 420ms var(--ease-out),
+      visibility 0ms linear 0ms;
+  }
+
+  .nav__link {
+    display: block;
+    padding: 0.95rem 0;
+    font-size: 0.9375rem;
+    letter-spacing: 0;
+    border-bottom: var(--hairline) solid var(--border);
+  }
+
+  .nav__links li:last-child .nav__link {
+    border-bottom: 0;
+  }
+
+  .nav__link::after {
+    display: none;
+  }
+
+  .nav__link.is-active {
+    color: var(--accent-text);
+  }
+
+  .nav__name {
+    font-size: 0.75rem;
+  }
+}

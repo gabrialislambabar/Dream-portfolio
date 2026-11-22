@@ -1,0 +1,50 @@
+.projects__intro {
+  margin-top: clamp(1.75rem, 2.6vw, 2.5rem);
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: space-between;
+  gap: 1rem 2.5rem;
+  padding-bottom: clamp(2rem, 3.4vw, 3.25rem);
+}
+
+.projects__intro p {
+  max-width: 40rem;
+  color: var(--text-secondary);
+  font-size: var(--fs-body);
+  line-height: 1.62;
+}
+
+.projects__all {
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.projects__item {
+  padding-block: clamp(2.25rem, 4vw, 3.75rem);
+  border-top: var(--hairline) solid var(--border);
+}
+
+.projects__item:last-child {
+  border-bottom: var(--hairline) solid var(--border);
+}
+
+/* The lead pair reads as a spread; the remaining four alternate
+   wide and narrow so the rhythm never repeats mechanically. */
+@media (min-width: 901px) {
+  .projects__item:nth-child(1) {
+    padding-top: clamp(1.5rem, 2.5vw, 2.5rem);
+  }
+}
+
+@media (max-width: 900px) {
+  .projects__all {
+    margin-left: 0;
+  }
+
+  .projects__item {
+    padding-block: clamp(1.75rem, 5vw, 2.75rem);
+  }
+}
