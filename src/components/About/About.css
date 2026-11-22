@@ -1,8 +1,9 @@
-/* The intro is the first thing under the navbar, so the top padding
-   is tightened to read as a header block rather than a new section.
-   The doubled class raises specificity over `.section`. */
+/* The intro sits immediately under the navbar, so the section's own
+   top padding is removed entirely. The doubled class raises
+   specificity over `.section`, whose `padding-block` would otherwise
+   win on source order. */
 .section.about {
-  padding-top: clamp(1rem, 1.6vw, 1.5rem);
+  padding-top: 0;
 }
 
 .about__grid {

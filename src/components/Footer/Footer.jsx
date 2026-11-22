@@ -50,7 +50,7 @@ export default function Footer() {
       </div>
 
       <div className="footer__wordmark" aria-hidden="true">
-        <span>Babar</span>
+        <span>Gabrial</span>
       </div>
     </footer>
   );

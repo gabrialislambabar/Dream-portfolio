@@ -137,13 +137,14 @@
 .footer__wordmark span {
   display: block;
   font-family: var(--font-sans);
-  font-size: clamp(4.5rem, 21vw, 19rem);
+  font-size: clamp(4rem, 17vw, 15rem);
   font-weight: 500;
   letter-spacing: -0.05em;
   color: var(--text-primary);
   opacity: 0.09;
   transform: translateY(0.1em);
   user-select: none;
+  text-align: center;
 }
 
 @media (max-width: 720px) {

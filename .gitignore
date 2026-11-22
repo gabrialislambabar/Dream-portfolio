@@ -1,6 +1,50 @@
-node_modules
-dist
-dist-ssr
+# Dependencies
+node_modules/
+.pnp
+.pnp.*
+
+# Build output
+dist/
+dist-ssr/
+build/
+.vite/
+*.tsbuildinfo
+
+# Local env / secrets
+.env
+.env.*
+!.env.example
 *.local
+
+# Tooling dotfiles and generated caches
+.commandcode/
+.qa/
+.cache/
+.temp/
+tmp/
+coverage/
+playwright-report/
+test-results/
+
+# OS and editor dotfiles
 .DS_Store
-.vite
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+Thumbs.db
+desktop.ini
+.idea/
+.vscode/
+*.swp
+*~
+
+# Logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+
+# Note: .gitignore itself and the src/assets/**/.gitkeep placeholders
+# are intentionally NOT ignored, so the folder structure stays in the repo.

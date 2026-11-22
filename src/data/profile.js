@@ -14,9 +14,8 @@ export const profile = {
 };
 
 export const aboutParagraphs = [
-  "I'm a Computer Science undergraduate with a genuine passion for software development, problem-solving, and understanding how technology works beneath the surface. I fell in love with coding through the process of building things, exploring ideas, and figuring out how different pieces of software come together. I particularly enjoy working with Linux, especially Arch Linux, and exploring the engineering principles behind modern applications.",
-  "I'm currently developing my full-stack engineering skills through university studies, independent learning, and hands-on projects. My interests extend beyond web development into cloud computing, system design, data structures and algorithms, and Linux systems administration. I enjoy collaborating with other developers, exchanging ideas, and turning concepts into working applications.",
-  'My approach to engineering begins with questioning the problem before attempting to solve it. I believe in understanding the underlying requirements, identifying potential failure points, consulting documentation, and learning through experimentation and collaboration. My long-term ambition is to become a Solutions Architect capable of designing thoughtful, reliable, and scalable technical solutions.',
+  'I’m a Computer Science undergraduate who enjoys understanding how software works beneath the surface. I build my skills through university, independent learning, and hands-on projects, while exploring full-stack development, Linux—especially Arch Linux—and cloud computing.',
+  'When I approach a problem, I first clarify what it needs to solve, then break it into parts, consider where it could fail, and use documentation and experimentation to find a sound solution. I enjoy sharing ideas with other developers and turning concepts into working applications. Over time, I hope to grow into a Solutions Architect who designs reliable, thoughtful systems.',
 ];
 
 export const personalInfo = [
