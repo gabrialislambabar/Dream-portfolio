@@ -118,8 +118,10 @@ main:focus {
   content: '';
   position: absolute;
   inset: 0;
+  /* Origin sits in the upper-left, spreading toward the middle of the
+     page and fading gradually to the base layer. */
   background: radial-gradient(
-    130% 88% at 50% -20%,
+    78% 66% at 30% -8%,
     var(--page-glow) 0%,
     transparent 72%
   );

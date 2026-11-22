@@ -110,7 +110,7 @@
 
   /* Page backdrop: a base plane plus a fixed warm glow near the top. */
   --page-base: #f2ece0;
-  --page-glow: rgb(201 165 137 / 18%);
+  --page-glow: rgb(201 165 137 / 12%);
 
   /* Giant footer wordmark. */
   --wordmark: #2a2520;
@@ -119,9 +119,11 @@
 :root[data-theme='dark'] {
   color-scheme: dark;
 
-  /* Deep near-black page; the fixed warm glow is layered on top. */
-  --background: #0b0a09;
-  --background-deep: #070606;
+  /* Deep near-black page; the fixed warm glow is layered on top.
+     Base sampled from the reference's lower area, glow from its
+     upper warm band (~#2B2119 where strongest). */
+  --background: #0c0a09;
+  --background-deep: #080706;
   --surface: #1b1917;
   --surface-elevated: #221f1c;
   --card: #1b1917;
@@ -155,8 +157,8 @@
   --shadow-card: 0 1px 2px rgb(0 0 0 / 34%), 0 12px 30px -22px rgb(0 0 0 / 70%);
   --shadow-panel: 0 2px 5px rgb(0 0 0 / 34%), 0 36px 84px -48px rgb(0 0 0 / 80%);
 
-  --page-base: #0b0a09;
-  --page-glow: rgb(74 53 34 / 70%);
+  --page-base: #0c0a09;
+  --page-glow: rgb(62 48 37 / 43%);
 
   --wordmark: #ded9d1;
 
