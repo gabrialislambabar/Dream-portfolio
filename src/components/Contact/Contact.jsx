@@ -41,7 +41,7 @@ export default function Contact() {
 
           <header className="contact__eyebrow">
             <span className="label">
-              <span className="contact__index">06</span>
+              <span className="contact__index">05</span>
               <span aria-hidden="true" className="contact__dash" />
               Contact &amp; availability
             </span>

@@ -7,27 +7,40 @@
   margin-top: clamp(2.25rem, 4vw, 3.5rem);
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
+  /* Equal tracks so every card matches in height as well as width. */
+  grid-auto-rows: 1fr;
   gap: clamp(0.9rem, 1.4vw, 1.35rem);
 }
 
 .stack__card {
-  display: flex;
-  flex-direction: column;
+  position: relative;
+  height: 100%;
   padding: clamp(1.35rem, 2vw, 1.85rem);
   background: var(--card);
   border: var(--hairline) solid var(--border);
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
+  /* Clips the constellation overlay to the rounded corners. */
+  overflow: hidden;
+  isolation: isolate;
   transition:
     border-color var(--dur-mid) var(--ease-out),
-    box-shadow var(--dur-mid) var(--ease-out),
-    transform var(--dur-mid) var(--ease-out);
+    box-shadow var(--dur-mid) var(--ease-out);
 }
 
-.stack__card:hover {
+/* Card content sits above the decorative overlay. */
+.stack__card-content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.stack__card:hover,
+.stack__card:focus-visible {
   border-color: var(--border-strong);
   box-shadow: var(--shadow-soft);
-  transform: translateY(-2px);
 }
 
 .stack__card-head {

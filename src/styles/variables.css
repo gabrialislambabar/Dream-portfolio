@@ -131,6 +131,11 @@
 
   --border: #332e29;
   --border-strong: #48413a;
+
+  /* Constellation overlay on technology cards (dark theme only). */
+  --constellation-star: #d9c3a5;
+  --constellation-line: #746655;
+  --constellation-glow: rgb(217 195 165 / 45%);
   --inverse-background: #f3eee4;
   --inverse-text: #17150f;
   --inverse-border: #d8d0c3;

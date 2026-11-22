@@ -6,7 +6,6 @@ import './Navigation.css';
 const LINKS = [
   { id: 'about', label: 'About' },
   { id: 'education', label: 'Education' },
-  { id: 'journey', label: 'Journey' },
   { id: 'projects', label: 'Projects' },
   { id: 'stack', label: 'Stack' },
   { id: 'contact', label: 'Contact' },

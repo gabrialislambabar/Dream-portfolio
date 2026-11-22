@@ -3,7 +3,6 @@ import Navigation from './components/Navigation/Navigation';
 import Masthead from './components/Masthead/Masthead';
 import About from './components/About/About';
 import Education from './components/Education/Education';
-import Journey from './components/Journey/Journey';
 import Projects from './components/Projects/Projects';
 import TechStack from './components/TechStack/TechStack';
 import Contact from './components/Contact/Contact';
@@ -24,7 +23,6 @@ export default function App() {
         <Masthead />
         <About />
         <Education />
-        <Journey />
         <Projects />
         <TechStack />
         <Contact />

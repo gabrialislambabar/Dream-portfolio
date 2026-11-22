@@ -12,7 +12,7 @@ export default function Projects() {
         <Reveal>
           <SectionHeading
             id="projects"
-            index="04"
+            index="03"
             label="Selected projects"
             meta="Two repositories · Learning by building"
             lines={[{ text: 'Projects worth' }, { text: 'building.', accent: true }]}

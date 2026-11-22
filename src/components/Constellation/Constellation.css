@@ -1,0 +1,97 @@
+/* ------------------------------------------------------------------
+   Constellation overlay — decorative, dark theme only.
+
+   Stars fade and scale in one at a time from the centre; each link
+   draws itself from its anchor using a normalised dash offset. On
+   exit the same sequence plays in reverse. Once formed, the stars
+   breathe between dim and glowing, out of phase with each other.
+   ------------------------------------------------------------------ */
+
+.constellation {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  pointer-events: none;
+  overflow: hidden;
+  display: none;
+}
+
+/* Requested behaviour: the effect exists in dark mode only. */
+:root[data-theme='dark'] .constellation {
+  display: block;
+}
+
+.constellation__link {
+  fill: none;
+  stroke: var(--constellation-line);
+  stroke-width: 0.85;
+  stroke-linecap: round;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  opacity: 0;
+  transition:
+    stroke-dashoffset 520ms var(--ease-out),
+    opacity 240ms linear;
+  /* Reversal: the last-drawn link retracts first. */
+  transition-delay: var(--delay-out, 0s);
+}
+
+.constellation__star {
+  fill: var(--constellation-star);
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  transform: scale(0.4);
+  filter: drop-shadow(0 0 2.5px var(--constellation-glow));
+  transition:
+    opacity 300ms var(--ease-out),
+    transform 380ms var(--ease-out);
+  transition-delay: var(--delay-out, 0s);
+}
+
+.constellation.is-active .constellation__link {
+  stroke-dashoffset: 0;
+  opacity: 0.5;
+  transition-delay: var(--delay, 0s);
+}
+
+.constellation.is-active .constellation__star {
+  opacity: 0.95;
+  transform: scale(1);
+  transition-delay: var(--delay, 0s);
+  /* Slow breathing glow; the negative phase offset keeps a few stars
+     bright while the others sit dim. */
+  animation: constellation-glow 3.4s ease-in-out infinite alternate;
+  animation-delay: calc(var(--delay, 0s) - var(--phase, 0s));
+}
+
+@keyframes constellation-glow {
+  from {
+    filter: brightness(0.68) drop-shadow(0 0 0.5px transparent);
+  }
+  to {
+    filter: brightness(1.35) drop-shadow(0 0 4px var(--constellation-glow));
+  }
+}
+
+/* Reduced motion: no drawing, scaling or pulsing — just a brief fade. */
+@media (prefers-reduced-motion: reduce) {
+  .constellation__star {
+    transform: none;
+    transition: opacity 160ms linear;
+  }
+
+  .constellation__link {
+    transition: opacity 160ms linear;
+  }
+
+  .constellation.is-active .constellation__link {
+    stroke-dashoffset: 0;
+  }
+
+  .constellation.is-active .constellation__star {
+    animation: none;
+  }
+}
