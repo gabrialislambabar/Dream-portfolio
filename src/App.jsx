@@ -1,5 +1,6 @@
 import { useTheme } from './hooks/useTheme';
 import Navigation from './components/Navigation/Navigation';
+import Masthead from './components/Masthead/Masthead';
 import About from './components/About/About';
 import Education from './components/Education/Education';
 import Journey from './components/Journey/Journey';
@@ -20,7 +21,7 @@ export default function App() {
       <Navigation theme={theme} onToggleTheme={toggle} />
 
       <main id="main">
-        <h1 className="sr-only">Muaz Islam Babar — Full-Stack Developer</h1>
+        <Masthead />
         <About />
         <Education />
         <Journey />

@@ -1,0 +1,79 @@
+/* ------------------------------------------------------------------
+   Masthead — the owner's name set large above the introduction,
+   following the reference's two-line name, tracked role label and
+   single intro line.
+   ------------------------------------------------------------------ */
+
+.masthead {
+  padding-top: clamp(1.75rem, 3.4vw, 3rem);
+  padding-bottom: clamp(1.5rem, 2.8vw, 2.5rem);
+}
+
+.masthead__name {
+  display: block;
+  margin: 0;
+  font-family: var(--font-sans);
+  font-size: clamp(3.25rem, 13vw, 12.5rem);
+  font-weight: 600;
+  line-height: 0.84;
+  letter-spacing: -0.055em;
+  color: var(--text-primary);
+  text-wrap: balance;
+}
+
+.masthead__line {
+  display: block;
+}
+
+.masthead__line + .masthead__line {
+  margin-top: 0.02em;
+}
+
+.masthead__foot {
+  display: flex;
+  flex-direction: column;
+  gap: clamp(0.6rem, 1.2vw, 1rem);
+  margin-top: clamp(1.5rem, 3vw, 2.5rem);
+}
+
+.masthead__role {
+  display: inline-block;
+  font-family: var(--font-mono);
+  font-size: var(--fs-label);
+  font-weight: 400;
+  letter-spacing: 0.34em;
+  text-transform: uppercase;
+  color: var(--text-secondary);
+  line-height: 1.4;
+}
+
+.masthead__intro {
+  max-width: 38rem;
+  color: var(--text-primary);
+  font-size: clamp(1rem, 1.3vw, 1.1875rem);
+  line-height: 1.55;
+  letter-spacing: -0.012em;
+  text-wrap: pretty;
+}
+
+@media (max-width: 900px) {
+  .masthead__role {
+    letter-spacing: 0.26em;
+  }
+}
+
+@media (max-width: 560px) {
+  .masthead__name {
+    letter-spacing: -0.045em;
+    line-height: 0.88;
+  }
+
+  .masthead__role {
+    letter-spacing: 0.2em;
+    font-size: 0.625rem;
+  }
+
+  .masthead__intro {
+    font-size: 0.9375rem;
+  }
+}

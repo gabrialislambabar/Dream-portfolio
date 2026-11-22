@@ -1,3 +1,5 @@
+import { Fragment } from 'react';
+
 import './SectionHeading.css';
 
 export default function SectionHeading({ index, label, lines, meta, className = '', id }) {
@@ -15,13 +17,15 @@ export default function SectionHeading({ index, label, lines, meta, className = 
       </div>
 
       <h2 className="sec-head__title display display--sm" id={headingId}>
-        {lines.map((line) => (
-          <span
-            key={line.text}
-            className={`display__line${line.accent ? ' display__line--accent' : ''}`}
-          >
-            {line.text}
-          </span>
+        {lines.map((line, index) => (
+          <Fragment key={line.text}>
+            {index > 0 ? ' ' : null}
+            <span
+              className={`display__line${line.accent ? ' display__line--accent' : ''}`}
+            >
+              {line.text}
+            </span>
+          </Fragment>
         ))}
       </h2>
     </header>
