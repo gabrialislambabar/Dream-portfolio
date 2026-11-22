@@ -7,7 +7,7 @@ import { projectImage } from '../../lib/assets';
 import './ProjectItem.css';
 
 export default function ProjectItem({ project, index = 0 }) {
-  const poster = projectImage(project.slug);
+  const poster = projectImage(project);
   const mediaSpan = project.mediaSpan ?? 6;
   const textSpan = 12 - mediaSpan - 1;
 
@@ -30,7 +30,7 @@ export default function ProjectItem({ project, index = 0 }) {
       >
         <Figure
           src={poster}
-          alt={`${project.name} — project screenshot placeholder.`}
+          alt={project.imageAlt ?? `${project.name} — project screenshot.`}
           tone={project.poster}
           ratio="4 / 3"
           caption={`${project.kind} · ${project.year}`}

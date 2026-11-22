@@ -6,6 +6,9 @@ export const projects = [
     kind: 'Design-sharing platform',
     year: '2025',
     poster: 'clay',
+    image: 'dribble-project.jpg',
+    imageAlt:
+      'Dribbble Clone wordmark set in a dark serif on a warm cream background.',
     mediaSpan: 6,
     flip: false,
     emphasis: 'lead',
@@ -28,6 +31,9 @@ export const projects = [
     kind: 'Chrome extension',
     year: '2025',
     poster: 'moss',
+    image: 'leadTracker-project.jpg',
+    imageAlt:
+      'LeadTracker extension popup on a dark desk scene, showing a URL field, Save button, and one saved link.',
     mediaSpan: 6,
     flip: true,
     emphasis: 'lead',
